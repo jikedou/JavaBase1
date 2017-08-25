@@ -721,7 +721,7 @@ interface接口
 			OutputStream
 				==FileOutputStream
 				==PipedOutputStream
-				FilterOutPutStream
+				FilterOutputStream
 					DataOutputStream
 					BufferedOutputStream
 					PrintStream
@@ -795,7 +795,24 @@ interface接口
 					将输出流中缓冲的数据全部写出到目的地
 					
 					良好的编程方式应先写flush再写close
-	
+		缓冲流
+			缓冲流要“套接”在相应的节点流之上，对读写的数据提供了缓冲的功能，提高了读写的效率，同时增加了 一些新的 方法
+				可显著的减少io次数，保护硬盘
+			J2SK提供了四种缓存流，其常用的构造方法为：
+			BufferReader(Reader in)
+			BufferReader(Readin in,int sz);//sz为自定义缓存区的大小
+			BufferWriter(Writer out)
+			BufferWriter(Writer out,int sz);
+			BufferInputStream(InputStream in);
+			BufferInputStream(InputStream in,int sz);
+			BufferOutputStream(OutputStream out);
+			BufferOutputStream(OutputStream out ,int sz);
+			
+			缓冲输入流支持其父类的mark和reset方法
+			BufferReader提供了readLine方法用于读取一行字符串（以\r或\n分隔）
+			BufferWriter提供了newLine用于写入一个行分隔符
+			对于输出的缓冲流，写出的数据会先在内存中缓冲，使用flush方法将会使内存中的数据立刻写出
+			
 	
 	
 								
