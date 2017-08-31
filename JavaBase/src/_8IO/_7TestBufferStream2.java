@@ -13,16 +13,24 @@ public class _7TestBufferStream2 {
 
 	public static void main(String[] args) {
 		BufferedInputStream bis = null;
-		String filepath = "d:/javatestpath/1.txt";
+		String filepath = "D:/www/feedback/conn.php";
 		String b = null;
 		int a = 0;
 		try {
 			bis=new BufferedInputStream(new FileInputStream(filepath));
-			bis.mark(1);
+			bis.mark(2);
+			System.out.println((char)bis.read());
+			System.out.println((char)bis.read());
+			System.out.println((char)bis.read());
+			System.out.println((char)bis.read());
+			System.out.println((char)bis.read());
+			System.out.println((char)bis.read());
+			System.out.println("++++++");
+			System.out.println("++++++");
+			bis.reset();
 			
 			for (int i = 0; i < 4&&((a=bis.read())!=-1); i++) {
 				System.out.println((char)a);
-				
 			}
 			bis.close();
 			
